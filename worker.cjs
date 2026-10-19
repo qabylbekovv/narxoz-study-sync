@@ -1,4 +1,3 @@
-"use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -25,9 +24,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// node_modules/bn.js/lib/bn.js
+// work/narxoz-desk/node_modules/bn.js/lib/bn.js
 var require_bn = __commonJS({
-  "node_modules/bn.js/lib/bn.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/bn.js/lib/bn.js"(exports2, module2) {
     (function(module3, exports3) {
       "use strict";
       function assert(val, msg) {
@@ -2845,9 +2844,9 @@ var require_bn = __commonJS({
   }
 });
 
-// node_modules/inherits/inherits_browser.js
+// work/narxoz-desk/node_modules/inherits/inherits_browser.js
 var require_inherits_browser = __commonJS({
-  "node_modules/inherits/inherits_browser.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/inherits/inherits_browser.js"(exports2, module2) {
     if (typeof Object.create === "function") {
       module2.exports = function inherits(ctor, superCtor) {
         if (superCtor) {
@@ -2877,9 +2876,9 @@ var require_inherits_browser = __commonJS({
   }
 });
 
-// node_modules/inherits/inherits.js
+// work/narxoz-desk/node_modules/inherits/inherits.js
 var require_inherits = __commonJS({
-  "node_modules/inherits/inherits.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/inherits/inherits.js"(exports2, module2) {
     try {
       util = require("util");
       if (typeof util.inherits !== "function") throw "";
@@ -2891,9 +2890,9 @@ var require_inherits = __commonJS({
   }
 });
 
-// node_modules/safer-buffer/safer.js
+// work/narxoz-desk/node_modules/safer-buffer/safer.js
 var require_safer = __commonJS({
-  "node_modules/safer-buffer/safer.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/safer-buffer/safer.js"(exports2, module2) {
     "use strict";
     var buffer = require("buffer");
     var Buffer2 = buffer.Buffer;
@@ -2959,9 +2958,9 @@ var require_safer = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/base/reporter.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/reporter.js
 var require_reporter = __commonJS({
-  "node_modules/asn1.js/lib/asn1/base/reporter.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/reporter.js"(exports2) {
     "use strict";
     var inherits = require_inherits();
     function Reporter(options) {
@@ -3060,9 +3059,9 @@ var require_reporter = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/base/buffer.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/buffer.js
 var require_buffer = __commonJS({
-  "node_modules/asn1.js/lib/asn1/base/buffer.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/buffer.js"(exports2) {
     "use strict";
     var inherits = require_inherits();
     var Reporter = require_reporter().Reporter;
@@ -3177,9 +3176,9 @@ var require_buffer = __commonJS({
   }
 });
 
-// node_modules/minimalistic-assert/index.js
+// work/narxoz-desk/node_modules/minimalistic-assert/index.js
 var require_minimalistic_assert = __commonJS({
-  "node_modules/minimalistic-assert/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/minimalistic-assert/index.js"(exports2, module2) {
     module2.exports = assert;
     function assert(val, msg) {
       if (!val)
@@ -3192,9 +3191,9 @@ var require_minimalistic_assert = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/base/node.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/node.js
 var require_node = __commonJS({
-  "node_modules/asn1.js/lib/asn1/base/node.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/node.js"(exports2, module2) {
     "use strict";
     var Reporter = require_reporter().Reporter;
     var EncoderBuffer = require_buffer().EncoderBuffer;
@@ -3727,9 +3726,9 @@ var require_node = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/constants/der.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/constants/der.js
 var require_der = __commonJS({
-  "node_modules/asn1.js/lib/asn1/constants/der.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/constants/der.js"(exports2) {
     "use strict";
     function reverse(map) {
       const res = {};
@@ -3783,9 +3782,9 @@ var require_der = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/encoders/der.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/encoders/der.js
 var require_der2 = __commonJS({
-  "node_modules/asn1.js/lib/asn1/encoders/der.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/encoders/der.js"(exports2, module2) {
     "use strict";
     var inherits = require_inherits();
     var Buffer2 = require_safer().Buffer;
@@ -4014,9 +4013,9 @@ var require_der2 = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/encoders/pem.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/encoders/pem.js
 var require_pem = __commonJS({
-  "node_modules/asn1.js/lib/asn1/encoders/pem.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/encoders/pem.js"(exports2, module2) {
     "use strict";
     var inherits = require_inherits();
     var DEREncoder = require_der2();
@@ -4038,9 +4037,9 @@ var require_pem = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/encoders/index.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/encoders/index.js
 var require_encoders = __commonJS({
-  "node_modules/asn1.js/lib/asn1/encoders/index.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/encoders/index.js"(exports2) {
     "use strict";
     var encoders = exports2;
     encoders.der = require_der2();
@@ -4048,9 +4047,9 @@ var require_encoders = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/decoders/der.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/decoders/der.js
 var require_der3 = __commonJS({
-  "node_modules/asn1.js/lib/asn1/decoders/der.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/decoders/der.js"(exports2, module2) {
     "use strict";
     var inherits = require_inherits();
     var bignum = require_bn();
@@ -4320,9 +4319,9 @@ var require_der3 = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/decoders/pem.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/decoders/pem.js
 var require_pem2 = __commonJS({
-  "node_modules/asn1.js/lib/asn1/decoders/pem.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/decoders/pem.js"(exports2, module2) {
     "use strict";
     var inherits = require_inherits();
     var Buffer2 = require_safer().Buffer;
@@ -4366,9 +4365,9 @@ var require_pem2 = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/decoders/index.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/decoders/index.js
 var require_decoders = __commonJS({
-  "node_modules/asn1.js/lib/asn1/decoders/index.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/decoders/index.js"(exports2) {
     "use strict";
     var decoders = exports2;
     decoders.der = require_der3();
@@ -4376,9 +4375,9 @@ var require_decoders = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/api.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/api.js
 var require_api = __commonJS({
-  "node_modules/asn1.js/lib/asn1/api.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/api.js"(exports2) {
     "use strict";
     var encoders = require_encoders();
     var decoders = require_decoders();
@@ -4425,9 +4424,9 @@ var require_api = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/base/index.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/index.js
 var require_base = __commonJS({
-  "node_modules/asn1.js/lib/asn1/base/index.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/base/index.js"(exports2) {
     "use strict";
     var base2 = exports2;
     base2.Reporter = require_reporter().Reporter;
@@ -4437,9 +4436,9 @@ var require_base = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1/constants/index.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1/constants/index.js
 var require_constants = __commonJS({
-  "node_modules/asn1.js/lib/asn1/constants/index.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1/constants/index.js"(exports2) {
     "use strict";
     var constants = exports2;
     constants._reverse = function reverse(map) {
@@ -4456,9 +4455,9 @@ var require_constants = __commonJS({
   }
 });
 
-// node_modules/asn1.js/lib/asn1.js
+// work/narxoz-desk/node_modules/asn1.js/lib/asn1.js
 var require_asn1 = __commonJS({
-  "node_modules/asn1.js/lib/asn1.js"(exports2) {
+  "work/narxoz-desk/node_modules/asn1.js/lib/asn1.js"(exports2) {
     "use strict";
     var asn1 = exports2;
     asn1.bignum = require_bn();
@@ -4470,9 +4469,9 @@ var require_asn1 = __commonJS({
   }
 });
 
-// node_modules/safe-buffer/index.js
+// work/narxoz-desk/node_modules/safe-buffer/index.js
 var require_safe_buffer = __commonJS({
-  "node_modules/safe-buffer/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/safe-buffer/index.js"(exports2, module2) {
     var buffer = require("buffer");
     var Buffer2 = buffer.Buffer;
     function copyProps(src, dst) {
@@ -4528,9 +4527,9 @@ var require_safe_buffer = __commonJS({
   }
 });
 
-// node_modules/jws/lib/data-stream.js
+// work/narxoz-desk/node_modules/jws/lib/data-stream.js
 var require_data_stream = __commonJS({
-  "node_modules/jws/lib/data-stream.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/jws/lib/data-stream.js"(exports2, module2) {
     var Buffer2 = require_safe_buffer().Buffer;
     var Stream = require("stream");
     var util = require("util");
@@ -4576,9 +4575,9 @@ var require_data_stream = __commonJS({
   }
 });
 
-// node_modules/ecdsa-sig-formatter/src/param-bytes-for-alg.js
+// work/narxoz-desk/node_modules/ecdsa-sig-formatter/src/param-bytes-for-alg.js
 var require_param_bytes_for_alg = __commonJS({
-  "node_modules/ecdsa-sig-formatter/src/param-bytes-for-alg.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/ecdsa-sig-formatter/src/param-bytes-for-alg.js"(exports2, module2) {
     "use strict";
     function getParamSize(keySize) {
       var result = (keySize / 8 | 0) + (keySize % 8 === 0 ? 0 : 1);
@@ -4600,9 +4599,9 @@ var require_param_bytes_for_alg = __commonJS({
   }
 });
 
-// node_modules/ecdsa-sig-formatter/src/ecdsa-sig-formatter.js
+// work/narxoz-desk/node_modules/ecdsa-sig-formatter/src/ecdsa-sig-formatter.js
 var require_ecdsa_sig_formatter = __commonJS({
-  "node_modules/ecdsa-sig-formatter/src/ecdsa-sig-formatter.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/ecdsa-sig-formatter/src/ecdsa-sig-formatter.js"(exports2, module2) {
     "use strict";
     var Buffer2 = require_safe_buffer().Buffer;
     var getParamBytesForAlg = require_param_bytes_for_alg();
@@ -4740,9 +4739,9 @@ var require_ecdsa_sig_formatter = __commonJS({
   }
 });
 
-// node_modules/buffer-equal-constant-time/index.js
+// work/narxoz-desk/node_modules/buffer-equal-constant-time/index.js
 var require_buffer_equal_constant_time = __commonJS({
-  "node_modules/buffer-equal-constant-time/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/buffer-equal-constant-time/index.js"(exports2, module2) {
     "use strict";
     var Buffer2 = require("buffer").Buffer;
     var SlowBuffer = require("buffer").SlowBuffer;
@@ -4774,9 +4773,9 @@ var require_buffer_equal_constant_time = __commonJS({
   }
 });
 
-// node_modules/jwa/index.js
+// work/narxoz-desk/node_modules/jwa/index.js
 var require_jwa = __commonJS({
-  "node_modules/jwa/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/jwa/index.js"(exports2, module2) {
     var Buffer2 = require_safe_buffer().Buffer;
     var crypto = require("crypto");
     var formatEcdsa = require_ecdsa_sig_formatter();
@@ -4998,9 +4997,9 @@ var require_jwa = __commonJS({
   }
 });
 
-// node_modules/jws/lib/tostring.js
+// work/narxoz-desk/node_modules/jws/lib/tostring.js
 var require_tostring = __commonJS({
-  "node_modules/jws/lib/tostring.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/jws/lib/tostring.js"(exports2, module2) {
     var Buffer2 = require("buffer").Buffer;
     module2.exports = function toString(obj) {
       if (typeof obj === "string")
@@ -5012,9 +5011,9 @@ var require_tostring = __commonJS({
   }
 });
 
-// node_modules/jws/lib/sign-stream.js
+// work/narxoz-desk/node_modules/jws/lib/sign-stream.js
 var require_sign_stream = __commonJS({
-  "node_modules/jws/lib/sign-stream.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/jws/lib/sign-stream.js"(exports2, module2) {
     var Buffer2 = require_safe_buffer().Buffer;
     var DataStream = require_data_stream();
     var jwa = require_jwa();
@@ -5087,9 +5086,9 @@ var require_sign_stream = __commonJS({
   }
 });
 
-// node_modules/jws/lib/verify-stream.js
+// work/narxoz-desk/node_modules/jws/lib/verify-stream.js
 var require_verify_stream = __commonJS({
-  "node_modules/jws/lib/verify-stream.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/jws/lib/verify-stream.js"(exports2, module2) {
     var Buffer2 = require_safe_buffer().Buffer;
     var DataStream = require_data_stream();
     var jwa = require_jwa();
@@ -5202,9 +5201,9 @@ var require_verify_stream = __commonJS({
   }
 });
 
-// node_modules/jws/index.js
+// work/narxoz-desk/node_modules/jws/index.js
 var require_jws = __commonJS({
-  "node_modules/jws/index.js"(exports2) {
+  "work/narxoz-desk/node_modules/jws/index.js"(exports2) {
     var SignStream = require_sign_stream();
     var VerifyStream = require_verify_stream();
     var ALGORITHMS = [
@@ -5235,9 +5234,9 @@ var require_jws = __commonJS({
   }
 });
 
-// node_modules/web-push/src/web-push-constants.js
+// work/narxoz-desk/node_modules/web-push/src/web-push-constants.js
 var require_web_push_constants = __commonJS({
-  "node_modules/web-push/src/web-push-constants.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/web-push/src/web-push-constants.js"(exports2, module2) {
     "use strict";
     var WebPushConstants = {};
     WebPushConstants.supportedContentEncodings = {
@@ -5254,9 +5253,9 @@ var require_web_push_constants = __commonJS({
   }
 });
 
-// node_modules/web-push/src/urlsafe-base64-helper.js
+// work/narxoz-desk/node_modules/web-push/src/urlsafe-base64-helper.js
 var require_urlsafe_base64_helper = __commonJS({
-  "node_modules/web-push/src/urlsafe-base64-helper.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/web-push/src/urlsafe-base64-helper.js"(exports2, module2) {
     "use strict";
     function validate(base64) {
       return /^[A-Za-z0-9\-_]+$/.test(base64);
@@ -5267,9 +5266,9 @@ var require_urlsafe_base64_helper = __commonJS({
   }
 });
 
-// node_modules/web-push/src/vapid-helper.js
+// work/narxoz-desk/node_modules/web-push/src/vapid-helper.js
 var require_vapid_helper = __commonJS({
-  "node_modules/web-push/src/vapid-helper.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/web-push/src/vapid-helper.js"(exports2, module2) {
     "use strict";
     var crypto = require("crypto");
     var asn1 = require_asn1();
@@ -5444,9 +5443,9 @@ var require_vapid_helper = __commonJS({
   }
 });
 
-// node_modules/http_ece/ece.js
+// work/narxoz-desk/node_modules/http_ece/ece.js
 var require_ece = __commonJS({
-  "node_modules/http_ece/ece.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/http_ece/ece.js"(exports2, module2) {
     "use strict";
     var crypto = require("crypto");
     var AES_GCM = "aes-128-gcm";
@@ -5895,9 +5894,9 @@ var require_ece = __commonJS({
   }
 });
 
-// node_modules/web-push/src/encryption-helper.js
+// work/narxoz-desk/node_modules/web-push/src/encryption-helper.js
 var require_encryption_helper = __commonJS({
-  "node_modules/web-push/src/encryption-helper.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/web-push/src/encryption-helper.js"(exports2, module2) {
     "use strict";
     var crypto = require("crypto");
     var ece = require_ece();
@@ -5948,9 +5947,9 @@ var require_encryption_helper = __commonJS({
   }
 });
 
-// node_modules/web-push/src/web-push-error.js
+// work/narxoz-desk/node_modules/web-push/src/web-push-error.js
 var require_web_push_error = __commonJS({
-  "node_modules/web-push/src/web-push-error.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/web-push/src/web-push-error.js"(exports2, module2) {
     "use strict";
     function WebPushError(message, statusCode, headers, body, endpoint) {
       Error.captureStackTrace(this, this.constructor);
@@ -5966,9 +5965,9 @@ var require_web_push_error = __commonJS({
   }
 });
 
-// node_modules/ms/index.js
+// work/narxoz-desk/node_modules/ms/index.js
 var require_ms = __commonJS({
-  "node_modules/ms/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/ms/index.js"(exports2, module2) {
     var s = 1e3;
     var m = s * 60;
     var h = m * 60;
@@ -6082,9 +6081,9 @@ var require_ms = __commonJS({
   }
 });
 
-// node_modules/debug/src/common.js
+// work/narxoz-desk/node_modules/debug/src/common.js
 var require_common = __commonJS({
-  "node_modules/debug/src/common.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/debug/src/common.js"(exports2, module2) {
     function setup(env) {
       createDebug.debug = createDebug;
       createDebug.default = createDebug;
@@ -6259,9 +6258,9 @@ var require_common = __commonJS({
   }
 });
 
-// node_modules/debug/src/browser.js
+// work/narxoz-desk/node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "node_modules/debug/src/browser.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/debug/src/browser.js"(exports2, module2) {
     exports2.formatArgs = formatArgs;
     exports2.save = save;
     exports2.load = load;
@@ -6429,9 +6428,9 @@ var require_browser = __commonJS({
   }
 });
 
-// node_modules/has-flag/index.js
+// work/narxoz-desk/node_modules/has-flag/index.js
 var require_has_flag = __commonJS({
-  "node_modules/has-flag/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/has-flag/index.js"(exports2, module2) {
     "use strict";
     module2.exports = (flag, argv = process.argv) => {
       const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
@@ -6442,9 +6441,9 @@ var require_has_flag = __commonJS({
   }
 });
 
-// node_modules/supports-color/index.js
+// work/narxoz-desk/node_modules/supports-color/index.js
 var require_supports_color = __commonJS({
-  "node_modules/supports-color/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/supports-color/index.js"(exports2, module2) {
     "use strict";
     var os = require("os");
     var tty = require("tty");
@@ -6544,9 +6543,9 @@ var require_supports_color = __commonJS({
   }
 });
 
-// node_modules/debug/src/node.js
+// work/narxoz-desk/node_modules/debug/src/node.js
 var require_node2 = __commonJS({
-  "node_modules/debug/src/node.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/debug/src/node.js"(exports2, module2) {
     var tty = require("tty");
     var util = require("util");
     exports2.init = init;
@@ -6718,9 +6717,9 @@ var require_node2 = __commonJS({
   }
 });
 
-// node_modules/debug/src/index.js
+// work/narxoz-desk/node_modules/debug/src/index.js
 var require_src = __commonJS({
-  "node_modules/debug/src/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/debug/src/index.js"(exports2, module2) {
     if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
       module2.exports = require_browser();
     } else {
@@ -6729,9 +6728,9 @@ var require_src = __commonJS({
   }
 });
 
-// node_modules/agent-base/dist/helpers.js
+// work/narxoz-desk/node_modules/agent-base/dist/helpers.js
 var require_helpers = __commonJS({
-  "node_modules/agent-base/dist/helpers.js"(exports2) {
+  "work/narxoz-desk/node_modules/agent-base/dist/helpers.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -6799,9 +6798,9 @@ var require_helpers = __commonJS({
   }
 });
 
-// node_modules/agent-base/dist/index.js
+// work/narxoz-desk/node_modules/agent-base/dist/index.js
 var require_dist = __commonJS({
-  "node_modules/agent-base/dist/index.js"(exports2) {
+  "work/narxoz-desk/node_modules/agent-base/dist/index.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -6955,9 +6954,9 @@ var require_dist = __commonJS({
   }
 });
 
-// node_modules/https-proxy-agent/dist/parse-proxy-response.js
+// work/narxoz-desk/node_modules/https-proxy-agent/dist/parse-proxy-response.js
 var require_parse_proxy_response = __commonJS({
-  "node_modules/https-proxy-agent/dist/parse-proxy-response.js"(exports2) {
+  "work/narxoz-desk/node_modules/https-proxy-agent/dist/parse-proxy-response.js"(exports2) {
     "use strict";
     var __importDefault = exports2 && exports2.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -7051,9 +7050,9 @@ var require_parse_proxy_response = __commonJS({
   }
 });
 
-// node_modules/https-proxy-agent/dist/index.js
+// work/narxoz-desk/node_modules/https-proxy-agent/dist/index.js
 var require_dist2 = __commonJS({
-  "node_modules/https-proxy-agent/dist/index.js"(exports2) {
+  "work/narxoz-desk/node_modules/https-proxy-agent/dist/index.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m, k, k2) {
       if (k2 === void 0) k2 = k;
@@ -7201,9 +7200,9 @@ var require_dist2 = __commonJS({
   }
 });
 
-// node_modules/web-push/src/web-push-lib.js
+// work/narxoz-desk/node_modules/web-push/src/web-push-lib.js
 var require_web_push_lib = __commonJS({
-  "node_modules/web-push/src/web-push-lib.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/web-push/src/web-push-lib.js"(exports2, module2) {
     "use strict";
     var url = require("url");
     var https = require("https");
@@ -7488,9 +7487,9 @@ var require_web_push_lib = __commonJS({
   }
 });
 
-// node_modules/web-push/src/index.js
+// work/narxoz-desk/node_modules/web-push/src/index.js
 var require_src2 = __commonJS({
-  "node_modules/web-push/src/index.js"(exports2, module2) {
+  "work/narxoz-desk/node_modules/web-push/src/index.js"(exports2, module2) {
     "use strict";
     var vapidHelper = require_vapid_helper();
     var encryptionHelper = require_encryption_helper();
@@ -7512,11 +7511,11 @@ var require_src2 = __commonJS({
   }
 });
 
-// runner/sync.mjs
+// work/narxoz-independent/runner/sync.mjs
 var import_web_push = __toESM(require_src2(), 1);
 var import_node_crypto = require("node:crypto");
 
-// lib/canvas.mjs
+// work/narxoz-independent/lib/canvas.mjs
 var ORIGIN = "https://canvas.narxoz.kz";
 var CanvasError = class extends Error {
   constructor(code, message) {
@@ -7589,7 +7588,7 @@ async function loadCanvas(token, request = fetch) {
   return { connected: true, updatedAt: (/* @__PURE__ */ new Date()).toISOString(), courses, assignments, warnings, partial: warnings.length > 0 };
 }
 
-// lib/notify.mjs
+// work/narxoz-independent/lib/notify.mjs
 var thresholds = [1440, 720, 360, 60, 30];
 function reminders(snapshot, now = Date.now()) {
   const courses = new Map(snapshot.courses.map((c) => [c.id, c]));
@@ -7611,13 +7610,13 @@ function validPushSubscription(s) {
   }
 }
 
-// runner/sync.mjs
+// work/narxoz-independent/runner/sync.mjs
 var config = JSON.parse(process.env.NARXOZ_WORKER_CONFIG || "{}");
-for (const k of ["siteUrl", "siteAccess", "syncKey", "canvasToken", "vapidPublic", "vapidPrivate", "contact"]) if (!config[k]) throw Error("Missing protected worker configuration: " + k);
+for (const k of ["siteUrl", "syncKey", "canvasToken", "vapidPublic", "vapidPrivate", "contact"]) if (!config[k]) throw Error("Missing protected worker configuration: " + k);
 var base = new URL(config.siteUrl);
 if (base.protocol !== "https:") throw Error("HTTPS required");
 async function call(body) {
-  const response = await fetch(new URL("/api/worker", base), { method: body ? "POST" : "GET", headers: { "OAI-Sites-Authorization": "Bearer " + config.siteAccess, Authorization: "Bearer " + config.syncKey, "Content-Type": "application/json" }, body: body ? JSON.stringify(body) : void 0, redirect: "manual", signal: AbortSignal.timeout(3e4) });
+  const response = await fetch(new URL("/api/worker", base), { method: body ? "POST" : "GET", headers: { Authorization: "Bearer " + config.syncKey, "Content-Type": "application/json" }, body: body ? JSON.stringify(body) : void 0, redirect: "manual", signal: AbortSignal.timeout(3e4) });
   if (!response.ok) throw Error("Panel API status " + response.status);
   return response.json();
 }
