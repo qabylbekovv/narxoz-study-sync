@@ -1,0 +1,20 @@
+name: Canvas sync and deadline reminders
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '2-57/5 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: narxoz-background
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Sync Canvas and send due reminders
+        run: node worker.cjs
+        env:
+          NARXOZ_WORKER_CONFIG: ${{ secrets.NARXOZ_WORKER_CONFIG }}
