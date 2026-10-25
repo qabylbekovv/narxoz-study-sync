@@ -7589,18 +7589,6 @@ async function loadCanvas(token, request = fetch) {
 }
 
 // work/narxoz-independent/lib/notify.mjs
-var thresholds = [1440, 720, 360, 60, 30];
-function reminders(snapshot, now = Date.now()) {
-  const courses = new Map(snapshot.courses.map((c) => [c.id, c]));
-  return snapshot.assignments.flatMap((a) => {
-    if (["submitted", "graded", "excused"].includes(a.status) || !a.dueAt || courses.get(a.courseId)?.archived) return [];
-    const due = Date.parse(a.dueAt), minutes = (due - now) / 6e4;
-    if (!Number.isFinite(due) || minutes <= 0 || minutes > 1440) return [];
-    const threshold = thresholds.filter((t) => minutes <= t).at(-1), remaining = Math.max(1, Math.ceil(minutes));
-    const label = remaining >= 60 ? `${Math.floor(remaining / 60)} \u0447 ${remaining % 60 ? remaining % 60 + " \u043C\u0438\u043D" : ""}`.trim() : `${remaining} \u043C\u0438\u043D`;
-    return [{ assignmentId: a.id, dueAt: a.dueAt, threshold, title: `\u0414\u043E \u0434\u0435\u0434\u043B\u0430\u0439\u043D\u0430 ${label}`, body: `${courses.get(a.courseId)?.name || "\u041F\u0440\u0435\u0434\u043C\u0435\u0442"}: ${a.title}`, url: "/#tasks", tag: `deadline-${a.id}-${due}-${threshold}` }];
-  });
-}
 function validPushSubscription(s) {
   try {
     const u = new URL(s.endpoint), host = u.hostname;
@@ -7620,37 +7608,54 @@ async function call(body) {
   if (!response.ok) throw Error("Panel API status " + response.status);
   return response.json();
 }
+async function deliver() {
+  const { devices, notifications = [] } = await call();
+  import_web_push.default.setVapidDetails(config.contact, config.vapidPublic, config.vapidPrivate);
+  let sent = 0, failed = 0;
+  for (const device of devices) {
+    if (!validPushSubscription(device.subscription)) continue;
+    for (const reminder of notifications) {
+      const remaining = Date.parse(reminder.dueAt) - Date.now();
+      if (!Number.isFinite(remaining) || remaining <= 0) continue;
+      const id = (0, import_node_crypto.createHash)("sha256").update(JSON.stringify([device.id, reminder.assignmentId, reminder.dueAt, reminder.threshold])).digest("hex");
+      if (!(await call({ op: "claim", id, deviceId: device.id })).claimed) continue;
+      try {
+        await import_web_push.default.sendNotification(device.subscription, JSON.stringify(reminder), { TTL: Math.max(1, Math.min(1800, Math.floor(remaining / 1e3))), urgency: reminder.threshold <= 60 ? "high" : "normal", timeout: 2e4 });
+        await call({ op: "ack", id });
+        sent++;
+      } catch (e) {
+        if ([404, 410].includes(e.statusCode)) {
+          await call({ op: "remove-device", deviceId: device.id });
+          break;
+        }
+        await call({ op: "release", id });
+        failed++;
+      }
+    }
+  }
+  console.log(`Notifications: ${sent} delivered, ${failed} delivery errors.`);
+  if (failed) process.exitCode = 1;
+}
 async function run() {
+  try {
+    await deliver();
+  } catch {
+    console.error("Notification delivery unavailable.");
+    process.exitCode = 1;
+  }
   try {
     const snapshot = await loadCanvas(config.canvasToken);
     await call({ op: "sync", snapshot });
-    const { devices } = await call();
-    import_web_push.default.setVapidDetails(config.contact, config.vapidPublic, config.vapidPrivate);
-    const candidates = reminders(snapshot);
-    let sent = 0, failed = 0;
-    for (const device of devices) {
-      if (!validPushSubscription(device.subscription)) continue;
-      for (const reminder of candidates) {
-        const id = (0, import_node_crypto.createHash)("sha256").update(JSON.stringify([device.id, reminder.assignmentId, reminder.dueAt, reminder.threshold])).digest("hex");
-        if (!(await call({ op: "claim", id, deviceId: device.id })).claimed) continue;
-        try {
-          await import_web_push.default.sendNotification(device.subscription, JSON.stringify(reminder), { TTL: Math.max(1, Math.min(1800, Math.floor((Date.parse(reminder.dueAt) - Date.now()) / 1e3))), urgency: reminder.threshold <= 60 ? "high" : "normal", timeout: 2e4 });
-          await call({ op: "ack", id });
-          sent++;
-        } catch (e) {
-          if ([404, 410].includes(e.statusCode)) {
-            await call({ op: "remove-device", deviceId: device.id });
-            break;
-          }
-          await call({ op: "release", id });
-          failed++;
-        }
-      }
-    }
-    console.log(`Sync completed: ${snapshot.courses.length} courses, ${snapshot.assignments.length} assignments, ${sent} notifications, ${failed} delivery errors, ${snapshot.warnings.length} course warnings.`);
-    if (failed || snapshot.partial) process.exitCode = 1;
+    console.log(`Sync: ${snapshot.courses.length} courses, ${snapshot.assignments.length} assignments, ${snapshot.warnings.length} warnings.`);
+    if (snapshot.partial) process.exitCode = 1;
   } catch (error) {
-    console.error("Background sync failed:", error.code || "connection_or_configuration");
+    console.error("Canvas sync failed:", error.code || "connection_or_configuration");
+    process.exitCode = 1;
+  }
+  try {
+    await deliver();
+  } catch {
+    console.error("Notification delivery unavailable.");
     process.exitCode = 1;
   }
 }
