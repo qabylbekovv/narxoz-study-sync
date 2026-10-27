@@ -1,6 +1,11 @@
 name: Canvas sync and deadline reminders
 on:
   workflow_dispatch:
+    inputs:
+      test_push:
+        description: Send one test notification to registered devices
+        type: boolean
+        default: false
   schedule:
     - cron: '2-57/5 * * * *'
 permissions:
@@ -18,3 +23,4 @@ jobs:
         run: node worker.cjs
         env:
           NARXOZ_WORKER_CONFIG: ${{ secrets.NARXOZ_WORKER_CONFIG }}
+          NARXOZ_TEST_PUSH: ${{ inputs.test_push && 'true' || 'false' }}
