@@ -43,7 +43,7 @@ var number = (value) => typeof value === "number" && Number.isFinite(value) ? va
 function normalizeAssignment(a, courseId) {
   const s = a.submission || {}, graded = s.workflow_state === "graded" && s.grade != null, submitted = !!s.submitted_at || ["submitted", "pending_review", "graded"].includes(s.workflow_state);
   let status = s.excused ? "excused" : s.missing ? "missing" : graded ? "graded" : submitted ? "submitted" : "unsubmitted";
-  return { id: `canvas-${courseId}-${a.id}`, canvasId: String(a.id), courseId: String(courseId), title: a.name || "\u0417\u0430\u0434\u0430\u043D\u0438\u0435", dueAt: s.cached_due_date || a.due_at || null, unlockAt: a.unlock_at || null, lockAt: a.lock_at || null, locked: !!a.locked_for_user, status, late: !!s.late, submittedAt: s.submitted_at || null, score: s.grade == null ? null : number(s.score), grade: s.grade == null ? null : String(s.grade), pointsPossible: number(a.points_possible), gradingType: a.grading_type, omitFromFinal: !!a.omit_from_final_grade, url: `${ORIGIN}/courses/${courseId}/assignments/${a.id}` };
+  return { id: `canvas-${courseId}-${a.id}`, canvasId: String(a.id), courseId: String(courseId), assignmentGroupId: a.assignment_group_id == null ? null : String(a.assignment_group_id), title: a.name || "\u0417\u0430\u0434\u0430\u043D\u0438\u0435", dueAt: s.cached_due_date || a.due_at || null, unlockAt: a.unlock_at || null, lockAt: a.lock_at || null, locked: !!a.locked_for_user, status, late: !!s.late, submittedAt: s.submitted_at || null, score: s.grade == null ? null : number(s.score), grade: s.grade == null ? null : String(s.grade), pointsPossible: number(a.points_possible), gradingType: a.grading_type, omitFromFinal: !!a.omit_from_final_grade, url: `${ORIGIN}/courses/${courseId}/assignments/${a.id}` };
 }
 async function loadCanvas(token, request = fetch) {
   const common = "/api/v1/courses?enrollment_type=student&include[]=total_scores&include[]=term&include[]=concluded&per_page=100";
@@ -51,7 +51,7 @@ async function loadCanvas(token, request = fetch) {
   const map = new Map([...current, ...past].filter((c) => c.id && c.name).map((c) => [String(c.id), c]));
   const courses = [...map.values()].map((c) => {
     const e = (c.enrollments || []).find((e2) => ["student", "StudentEnrollment"].includes(e2.type)) || {};
-    return { id: String(c.id), name: c.name, code: c.course_code || "", term: c.term?.name || "", archived: !!c.concluded || c.workflow_state === "completed" || !current.some((x) => x.id === c.id), currentScore: number(e.computed_current_score ?? e.grades?.current_score), finalScore: number(e.computed_final_score ?? e.grades?.final_score), currentGrade: e.computed_current_grade ?? e.grades?.current_grade ?? null, url: `${ORIGIN}/courses/${c.id}/grades` };
+    return { id: String(c.id), weightedGroups: !!c.apply_assignment_group_weights, name: c.name, code: c.course_code || "", term: c.term?.name || "", archived: !!c.concluded || c.workflow_state === "completed" || !current.some((x) => x.id === c.id), currentScore: number(e.computed_current_score ?? e.grades?.current_score), finalScore: number(e.computed_final_score ?? e.grades?.final_score), currentGrade: e.computed_current_grade ?? e.grades?.current_grade ?? null, url: `${ORIGIN}/courses/${c.id}/grades` };
   });
   const assignments = [], warnings = [];
   let cursor = 0;
@@ -61,6 +61,13 @@ async function loadCanvas(token, request = fetch) {
       try {
         const rows = await canvasList(`/api/v1/courses/${c.id}/assignments?include[]=submission&per_page=100`, token, request);
         assignments.push(...rows.filter((a) => a.published !== false).map((a) => normalizeAssignment(a, c.id)));
+        try {
+          const groups = await canvasList(`/api/v1/courses/${c.id}/assignment_groups?per_page=100`, token, request);
+          c.assignmentGroups = groups.map((g) => ({ id: String(g.id), name: g.name || "", weight: number(g.group_weight), rules: { dropLowest: g.rules?.drop_lowest || 0, dropHighest: g.rules?.drop_highest || 0 } }));
+        } catch (e) {
+          if (e.code === "invalid_token") throw e;
+          c.groupWarning = "Canvas \u043D\u0435 \u043F\u0435\u0440\u0435\u0434\u0430\u043B \u0432\u0435\u0441\u0430 \u0433\u0440\u0443\u043F\u043F.";
+        }
       } catch (e) {
         if (e.code === "invalid_token") throw e;
         warnings.push({ courseId: c.id, message: e.message });
