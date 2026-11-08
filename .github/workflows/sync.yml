@@ -6,8 +6,8 @@ on:
         description: Send one test notification to registered devices
         type: boolean
         default: false
-  schedule:
-    - cron: '2-57/5 * * * *'
+# Cloudflare's minute cron dispatches this workflow every five minutes.
+# Keep a single scheduler: GitHub's schedule delivery can be delayed for hours.
 permissions:
   contents: read
 concurrency:
